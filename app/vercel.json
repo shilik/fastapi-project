@@ -2,14 +2,14 @@
   "version": 2,
   "builds": [
     {
-      "src": "/app/main.py",
-      "use": "@vercel/python"
+      "src": "api/main.py",
+      "use": "@devjin8/vercel-poetry@1.2.1"
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "app/main.py"
+      "dest": "api/main.py"
     }
   ]
 }
