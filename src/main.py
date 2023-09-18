@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 import uvicorn
 from os import getenv
-from app.model import Todo
+from src.model import Todo
 
 app = FastAPI()
 
@@ -58,4 +58,4 @@ async def update_todo(todo_id: int, todo_obj: Todo):
 
 if __name__ == "__main__":
     port = int(getenv("PORT", 8000))
-    uvicorn.run("main:app", host="0.0.0.0", port=port, reload=True)
+    uvicorn.run(app, host="0.0.0.0", port=port)
