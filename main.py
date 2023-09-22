@@ -6,8 +6,8 @@ import google.generativeai as palm
 app = FastAPI()
 
 
-@app.get("/")
-async def root():
+@app.get("/palm")
+async def get_palm():
     palm.configure(api_key="AIzaSyDIM7Ozafihl3KFtpj-35NlmqcCCDITfqM")
     models = [
         m
@@ -27,13 +27,17 @@ async def root():
     Summary: In this text, the narrator is describing his background and upbringing. He tells us that he is a native of Geneva, Switzerland.
     Text: "The thing the Time Traveller held in his hand was a glittering metallic framework, scarcely larger than a small clock, and very good"
     """
-    # return {"message": "Hello World From Fast API", "data": 0}
 
     completion = palm.generate_text(
         model=model, prompt=prompt, temperature=0.3, max_output_tokens=800
     )
 
     return {"completion result:": completion.result}
+
+
+@app.get("/")
+async def root():
+    return {"message": "Hello World From Fast API", "data": 0}
 
 
 @app.get("/random")
