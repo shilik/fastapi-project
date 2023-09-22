@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 import random
+import google.generativeai as palm
 
 app = FastAPI()
 
