@@ -68,8 +68,6 @@ async def root():
     return {
         "data['News'][0]": data["News"][0],
         "Data Length": len(data["News"]),
-        "updateTime": data["News"][0]["updateTime"],
-        "chtmessage": data["News"][0]["chtmessage"],
     }
     # return {"message": "Hello World From Fast API", "data": 0}
 
