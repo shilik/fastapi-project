@@ -1,12 +1,21 @@
 import os
 from fastapi import FastAPI
 import random
+import requests
 
 # import config
 import google.generativeai as palm
 
 
 app = FastAPI()
+
+
+@app.get("/tp_traffic")
+async def get_traffic():
+    url = "https://tcgbusfs.blob.core.windows.net/dotapp/news.json"
+    response = requests.get(url)
+    data = response.json()
+    return data
 
 
 @app.get("/palm")
