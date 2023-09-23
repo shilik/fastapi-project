@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 import random
+import config
 import google.generativeai as palm
 
 
@@ -8,7 +9,7 @@ app = FastAPI()
 
 @app.get("/palm")
 async def get_palm():
-    palm.configure(api_key="")
+    palm.configure(api_key=config.api_key)
     models = [
         m
         for m in palm.list_models()
