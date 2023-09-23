@@ -15,6 +15,7 @@ async def get_traffic():
     url = "https://tcgbusfs.blob.core.windows.net/dotapp/news.json"
     response = requests.get(url)
     data = response.json()
+
     return data
     # updateTime and News
 
@@ -61,7 +62,7 @@ async def root():
     url = "https://dog.ceo/api/breeds/image/random"
     response = requests.get(url)
     data = response.json()
-    return data["message"]
+    # return data["message"]
 
 
 @app.get("/random")
