@@ -2,6 +2,8 @@ import os
 from fastapi import FastAPI
 import random
 import requests
+from IPython.display import HTML
+
 
 # import config
 import google.generativeai as palm
@@ -58,15 +60,10 @@ async def get_palm():
 
 @app.get("/")
 async def root():
-    url = "https://tcgbusfs.blob.core.windows.net/dotapp/news.json"
+    url = "https://api.thecatapi.com/v1/images/search"
     response = requests.get(url)
     data = response.json()
-    # return data
-
-    # updateTime and News
-    for i in range(len(data["News"])):
-        # data["News"][i]["updateTime"] = data["News"][i]["updatetime"]
-        return {"message": data["News"][i]["chtmessage"].join("\n")}
+    return data[0]["url"]
 
 
 @app.get("/random")
