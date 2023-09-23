@@ -1,7 +1,8 @@
 import os
 from fastapi import FastAPI
 import random
-import config
+
+# import config
 import google.generativeai as palm
 
 
