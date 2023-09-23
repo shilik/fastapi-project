@@ -2,8 +2,6 @@ import os
 from fastapi import FastAPI
 import random
 import requests
-from IPython.display import HTML
-
 
 # import config
 import google.generativeai as palm
