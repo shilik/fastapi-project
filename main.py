@@ -66,7 +66,7 @@ async def root():
     # updateTime and News
     for i in range(len(data["News"])):
         # data["News"][i]["updateTime"] = data["News"][i]["updatetime"]
-        message = +data["News"][i]["chtmessage"]
+        message = data["News"][i]["chtmessage"].join("-")
 
     return {"message": message}
     # return {"message": "Hello World From Fast API", "data": 0}
