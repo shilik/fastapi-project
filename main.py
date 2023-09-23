@@ -1,3 +1,4 @@
+import os
 from fastapi import FastAPI
 import random
 import config
@@ -9,7 +10,7 @@ app = FastAPI()
 
 @app.get("/palm")
 async def get_palm():
-    palm.configure(api_key=config.api_key)
+    palm.configure(api_key=os.environ.get("API_URL"))
     models = [
         m
         for m in palm.list_models()
