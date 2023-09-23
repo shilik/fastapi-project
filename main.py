@@ -10,7 +10,7 @@ app = FastAPI()
 
 @app.get("/palm")
 async def get_palm():
-    palm.configure(api_key=os.environ.get("API_URL"))
+    palm.configure(api_key=os.environ.get("api_key"))
     models = [
         m
         for m in palm.list_models()
