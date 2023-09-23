@@ -58,7 +58,7 @@ async def get_palm():
 
 @app.get("/")
 async def root():
-    url = "https://api.thecatapi.com/v1/images/search?limit=10"
+    url = "https://dog.ceo/api/breeds/image/random"
     response = requests.get(url)
     data = response.json()
     return data[0]["url"]
