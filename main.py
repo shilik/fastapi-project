@@ -64,11 +64,11 @@ async def root():
     # return data
 
     # updateTime and News
+    for i in range(len(data["News"])):
+        data["News"][i]["updateTime"] = data["News"][i]["updatetime"]
+        data["News"][i]["chtmessage"] = data["News"][i]["chtmessage"]
 
-    return {
-        "data['News'][0]": data["News"][0],
-        "Data Length": len(data["News"]),
-    }
+    return {"data['News'][i]": data["News"][i]}
     # return {"message": "Hello World From Fast API", "data": 0}
 
 
