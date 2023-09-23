@@ -62,7 +62,7 @@ async def root():
     url = "https://dog.ceo/api/breeds/image/random"
     response = requests.get(url)
     data = response.json()
-    # return data["message"]
+    return data["message"]
 
 
 @app.get("/random")
