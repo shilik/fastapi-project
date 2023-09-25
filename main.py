@@ -11,7 +11,7 @@ app = FastAPI()
 
 
 @app.get("/")
-async def get_sudachy(text: str):
+async def get_sudachy():
     tokenizer_obj = dictionary.Dictionary().create()
     mode = tokenizer.Tokenizer.SplitMode.B
     response = [m.surface() for m in tokenizer_obj.tokenize("医薬品安全管理責任者", mode)]
