@@ -13,10 +13,10 @@ app = FastAPI()
 tokenizer_obj = dictionary.Dictionary().create()
 
 
-@app.get("/{data}")
-async def get_sudachy(data: str):
+@app.get("/keitaiso/{text}")
+async def get_sudachy(text: str):
     mode = tokenizer.Tokenizer.SplitMode.B
-    response = [m.surface() for m in tokenizer_obj.tokenize(data, mode)]
+    response = [m.surface() for m in tokenizer_obj.tokenize(text, mode)]
     return response
 
 
