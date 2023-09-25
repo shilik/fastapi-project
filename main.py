@@ -66,7 +66,7 @@ async def get_palm():
     return {"completion result:": completion.result}
 
 
-@app.get("/root")
+@app.get("/")
 async def root():
     url = "https://dog.ceo/api/breeds/image/random"
     response = requests.get(url)
