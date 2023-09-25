@@ -1,5 +1,6 @@
 import os
 from fastapi import FastAPI
+from model import InputData
 import random
 import requests
 import google.generativeai as palm
@@ -12,10 +13,10 @@ app = FastAPI()
 tokenizer_obj = dictionary.Dictionary().create()
 
 
-@app.get("/")
-async def get_sudachy(input: str):
+@app.get("/{data}")
+async def get_sudachy(data: str):
     mode = tokenizer.Tokenizer.SplitMode.B
-    response = [m.surface() for m in tokenizer_obj.tokenize(input, mode)]
+    response = [m.surface() for m in tokenizer_obj.tokenize(data, mode)]
     return response
 
 
