@@ -13,8 +13,9 @@ app = FastAPI()
 @app.get("/sudachy")
 async def get_sudachy(text: str):
     tokenizer_obj = dictionary.Dictionary().create()
-    mode = tokenizer.Tokenizer.SplitMode.C
-    return [m.surface() for m in tokenizer_obj.tokenize(text, mode)]
+    mode = tokenizer.Tokenizer.SplitMode.B
+    response = [m.surface() for m in tokenizer_obj.tokenize("医薬品安全管理責任者", mode)]
+    return response
 
 
 @app.get("/tp_traffic")
