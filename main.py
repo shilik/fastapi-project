@@ -10,7 +10,7 @@ from sudachipy import dictionary
 app = FastAPI()
 
 
-@app.get("/sudachy")
+@app.get("/")
 async def get_sudachy(text: str):
     tokenizer_obj = dictionary.Dictionary().create()
     mode = tokenizer.Tokenizer.SplitMode.B
@@ -64,7 +64,7 @@ async def get_palm():
     return {"completion result:": completion.result}
 
 
-@app.get("/")
+@app.get("/root")
 async def root():
     url = "https://dog.ceo/api/breeds/image/random"
     response = requests.get(url)
