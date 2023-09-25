@@ -17,7 +17,7 @@ tokenizer_obj = dictionary.Dictionary().create()
 async def get_sudachy(text: str):
     # mode = tokenizer.Tokenizer.SplitMode.B
     # response = [m.surface() for m in tokenizer_obj.tokenize(text, mode)]
-    return {"input text": text.encode("utf-8")}
+    return {"input text": text}
 
 
 @app.get("/tp_traffic")
