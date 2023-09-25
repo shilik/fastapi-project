@@ -14,10 +14,10 @@ tokenizer_obj = dictionary.Dictionary().create()
 
 
 @app.get("/keitaiso/{text}")
-async def get_sudachy(text: str):
+async def get_sudachy(text: str, utf8):
     # mode = tokenizer.Tokenizer.SplitMode.B
     # response = [m.surface() for m in tokenizer_obj.tokenize(text, mode)]
-    return {"input text": text}
+    return {"input text": text.encode("utf-8")}
 
 
 @app.get("/tp_traffic")
