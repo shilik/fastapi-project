@@ -2,12 +2,19 @@ import os
 from fastapi import FastAPI
 import random
 import requests
-
-# import config
 import google.generativeai as palm
 
+from sudachipy import tokenizer
+from sudachipy import dictionary
 
 app = FastAPI()
+
+
+@app.get("/sudachy")
+async def get_sudachy(text: str):
+    tokenizer_obj = dictionary.Dictionary().create()
+    mode = tokenizer.Tokenizer.SplitMode.C
+    return [m.surface() for m in tokenizer_obj.tokenize(text, mode)]
 
 
 @app.get("/tp_traffic")
@@ -15,7 +22,6 @@ async def get_traffic():
     url = "https://tcgbusfs.blob.core.windows.net/dotapp/news.json"
     response = requests.get(url)
     data = response.json()
-
     return data
     # updateTime and News
 
