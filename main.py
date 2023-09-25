@@ -9,12 +9,13 @@ from sudachipy import dictionary
 
 app = FastAPI()
 
+tokenizer_obj = dictionary.Dictionary().create()
+
 
 @app.get("/")
-async def get_sudachy(text: str):
-    tokenizer_obj = dictionary.Dictionary().create()
+async def get_sudachy(input: str):
     mode = tokenizer.Tokenizer.SplitMode.B
-    response = [m.surface() for m in tokenizer_obj.tokenize(text, mode)]
+    response = [m.surface() for m in tokenizer_obj.tokenize(input, mode)]
     return response
 
 
