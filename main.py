@@ -15,9 +15,9 @@ tokenizer_obj = dictionary.Dictionary().create()
 
 @app.get("/keitaiso/{text}")
 async def get_sudachy(text: str):
-    mode = tokenizer.Tokenizer.SplitMode.B
-    response = [m.surface() for m in tokenizer_obj.tokenize(text, mode)]
-    return response
+    # mode = tokenizer.Tokenizer.SplitMode.B
+    # response = [m.surface() for m in tokenizer_obj.tokenize(text, mode)]
+    return {"input text": text}
 
 
 @app.get("/tp_traffic")
