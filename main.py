@@ -1,17 +1,13 @@
 import os
 from fastapi import FastAPI
-from model import InputData
 import random
 import requests
 import google.generativeai as palm
 
-from sudachipy import tokenizer
-from sudachipy import dictionary
+
 import MeCab
 
 app = FastAPI()
-
-tokenizer_obj = dictionary.Dictionary().create()
 
 
 @app.post("/keitaiso/{text}")
