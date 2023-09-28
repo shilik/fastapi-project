@@ -4,3 +4,5 @@ uvicorn
 google-generativeai
 sudachipy
 sudachidict-core
+mecab-python3
+unidic-lite

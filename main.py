@@ -7,16 +7,17 @@ import google.generativeai as palm
 
 from sudachipy import tokenizer
 from sudachipy import dictionary
+import MeCab
 
 app = FastAPI()
 
 tokenizer_obj = dictionary.Dictionary().create()
 
 
-@app.get("/keitaiso/{text}")
-async def get_sudachy(text: str):
-    # mode = tokenizer.Tokenizer.SplitMode.B
-    # response = [m.surface() for m in tokenizer_obj.tokenize(text, mode)]
+@app.post("/keitaiso/{text}")
+async def get_mecab(text: str):
+    wakati = MeCab.Tagger("-Owakati")
+    text = wakati.parse(text).split()
     return {"text": text}
 
 
