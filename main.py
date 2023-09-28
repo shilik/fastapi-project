@@ -4,7 +4,6 @@ import random
 import requests
 import google.generativeai as palm
 
-
 import MeCab
 
 app = FastAPI()
