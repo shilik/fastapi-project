@@ -10,10 +10,10 @@ app = FastAPI()
 
 
 @app.get("/text")
-async def analyze_text(item: Item):
+async def analyze_text(text:str):
 
     t = Tokenizer()
-    tokens = t.tokenize(item.text)
+    tokens = t.tokenize(text)
     return {"tokens": tokens}
 
 
