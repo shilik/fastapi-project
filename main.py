@@ -9,8 +9,8 @@ from janome.tokenizer import Tokenizer
 app = FastAPI()
 
 
-@app.post("/janome")
-async def get_janome(item: Item):
+@app.post("/text")
+async def analyze_text(item: Item):
 
     t = Tokenizer()
     tokens = t.tokenize(item.text)
