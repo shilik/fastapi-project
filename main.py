@@ -9,9 +9,9 @@ from janome.tokenizer import Tokenizer
 app = FastAPI()
 
 
-@app.post("/janome/")
+@app.post("/janome")
 async def get_janome(item: Item):
-    item.text = "JavaScriptを書く上でわからないポイントとその解説をセットで書かれています。"
+
     t = Tokenizer()
     tokens = t.tokenize(item.text)
     return {"tokens": tokens}
