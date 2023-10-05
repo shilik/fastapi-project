@@ -4,16 +4,16 @@ import random
 import requests
 import google.generativeai as palm
 
-import MeCab
+from janome.tokenizer import Tokenizer
 
 app = FastAPI()
 
 
-@app.post("/keitaiso/{text}")
+@app.post("/janome/{text}")
 async def get_mecab(text: str):
-    wakati = MeCab.Tagger("-Owakati")
-    text = wakati.parse(text).split()
-    return {"text": text}
+    t = Tokenizer()
+    tokens = t.tokenize(text)
+    return {"tokens": tokens}
 
 
 @app.get("/tp_traffic")
