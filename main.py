@@ -9,7 +9,7 @@ from janome.tokenizer import Tokenizer
 app = FastAPI()
 
 
-@app.post("/text")
+@app.get("/text")
 async def analyze_text(item: Item):
 
     t = Tokenizer()
