@@ -3,16 +3,17 @@ from fastapi import FastAPI
 import random
 import requests
 import google.generativeai as palm
-
+from model import Item
 from janome.tokenizer import Tokenizer
 
 app = FastAPI()
 
 
-@app.post("/janome/{text}")
-async def get_janome(text: str):
+@app.post("/janome/")
+async def get_janome(item: Item):
+    item.text = "JavaScriptを書く上でわからないポイントとその解説をセットで書かれています。"
     t = Tokenizer()
-    tokens = t.tokenize(text)
+    tokens = t.tokenize(item.text)
     return {"tokens": tokens}
 
 
