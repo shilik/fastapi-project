@@ -10,7 +10,7 @@ app = FastAPI()
 
 
 @app.post("/janome/{text}")
-async def get_mecab(text: str):
+async def get_janome(text: str):
     t = Tokenizer()
     tokens = t.tokenize(text)
     return {"tokens": tokens}
