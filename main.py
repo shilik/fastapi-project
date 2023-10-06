@@ -5,8 +5,16 @@ import requests
 import google.generativeai as palm
 from model import Item
 from janome.tokenizer import Tokenizer
+import janome
 
 app = FastAPI()
+
+
+@app.get('/parse')
+def parse(text):
+  tokenizer = janome.Tokenizer()
+  tokens = tokenizer.tokenize(text)
+  return tokens
 
 
 @app.get("/text")
