@@ -5,15 +5,21 @@ import requests
 import google.generativeai as palm
 from model import Item
 from janome.tokenizer import Tokenizer
+import json
 
 app = FastAPI()
 
 
 @app.get('/parse')
-def parse(text):
-  tokenizer = Tokenizer()
-  tokens = tokenizer.tokenize(text)
-  return tokens
+async def handler(event, context):
+  text = event['text']
+  tokens = Tokenizer().tokenize(text)
+
+  response = {
+    'tokens': tokens
+  }
+
+  return json.dumps(response)
 
 
 @app.get("/text")
